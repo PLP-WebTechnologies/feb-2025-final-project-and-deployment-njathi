@@ -6,16 +6,21 @@
     </main>
     <script>
       const products = [
-        { id: 1, name: "T-Shirt", price: 20, image: src="T-Shirt.jpg"},
-        { id: 2, name: "Shoes", price: 50, image: src="Shoes.jpg" }
+        { id: 1, name: "T-Shirt", price: 30, image: "T-Shirt.jpg"},
+        { id: 2, name: "Shoes", price: 55, image: "Shoes.jpg" },
+        { id: 3, name: "Watch", price: 100, image: "Wrist Watch.jpg" },
+        { id: 4, name: "Phone", price: 300, image: "Smart Phone.jpg" }
       ];
   
       const productList = document.getElementById('productList');
       products.forEach(p => {
         const div = document.createElement('div');
         div.className = "product";
-        div.innerHTML = `<h3>${p.name}</h3><p>$${p.price}</p>
-          <button onclick="addToCart(${p.id}, '${p.name}', ${p.price})">Add to Cart</button>`;
+        div.innerHTML = ` <img src="${p.image}" alt="${p.name}" class="product-image">
+        <h3>${p.name}</h3>
+        <p>$${p.price.toFixed(2)}</p>
+        <button onclick="addToCart(${p.id}, '${p.name}', ${p.price}})">Add to Cart</button>
+      `;
         productList.appendChild(div);
       });
   
